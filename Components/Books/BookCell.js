@@ -20,6 +20,7 @@ export default class BookCell extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexDirection: 'row',
     margin: 10
   },
@@ -28,7 +29,8 @@ const styles = StyleSheet.create({
     width:40,
   },
   rightContent: {
-    paddingHorizontal:10,
+    flex: 1,
+    paddingHorizontal:10
   },
   author: {
     fontSize: 12,

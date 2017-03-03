@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { View, ListView, Text, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, ListView, Text, ActivityIndicator, StyleSheet, Dimensions } from 'react-native';
 import { getBooksFromApiAsync } from '../Data/ApiRequests';
 import { Actions } from 'react-native-router-flux';
 import BookCell from './BookCell';
 
+let {width, height} = Dimensions.get('window')
 export default class Books extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +13,7 @@ export default class Books extends Component {
   }
 
   componentWillMount() {
-    getBooksFromApiAsync((books)=>{
+    getBooksFromApiAsync('react', (books)=>{
       this.setState({
         dataSource:this.state.dataSource.cloneWithRows([...books]),
         loading: false
@@ -59,8 +60,6 @@ export default class Books extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: 'white',
     paddingTop: 64
   },

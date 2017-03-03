@@ -20,18 +20,18 @@ export default class TabBarIcon extends Component{
     let param=this.data[this.props.sceneKey];
     let activeStyle=this.props.selected?{color:'yellowgreen'}:{color:'silver'};
     return (
-      <View>
+      <View style={styles.tabbar}>
         <Icon name={param.icon} color={activeStyle.color} size={25}/>
-        <Text style={[activeStyle,styles.tabbarItem]}>{param.title}</Text>
+        <Text style={activeStyle}>{param.title}</Text>
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-    tabbarItem:{
+    tabbar:{
       alignItems:'center',
       justifyContent:'center',
-      textAlign:'center',
+      backgroundColor: 'white'
     }
 })
